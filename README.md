@@ -2,13 +2,13 @@
 
 A professional Eisenhower Matrix productivity tool designed for high-performance task management. This application uses a dark glassmorphism theme and a robust Java/Servlet backend.
 
-## 📋 Prerequisites
+## Prerequisites
 - **Java JDK 21** or higher
 - **Maven 3.9+**
 
 ---
 
-## 🛠️ Build and Deployment Commands
+## Build and Deployment Commands
 
 ### 1. Compile the Project
 To verify the code and compile all classes:
@@ -31,7 +31,7 @@ mvn clean package
 
 ---
 
-## 🔍 Data Management & Utilities
+## Data Management & Utilities
 
 ### View Registered User Data
 Since the user records are stored in a serialized `.dat` file, use this command to view the list of users and passwords in your terminal:
@@ -43,14 +43,14 @@ java -cp target/classes com.project.ReadUsers
 
 ---
 
-## 🚀 How to Run the App
+## How to Run the App
 1.  **Build the .war file** using the command above.
-2.  **Deploy to Tomcat**: Move the `ProductivityMatrix.war` file to your server’s `/webapps` directory.
+2.  **Deploy to Tomcat**: Move the `ProductivityMatrix.war` file to your server's `/webapps` directory.
 3.  **Access the App**: Navigate to `http://localhost:8080/ProductivityMatrix` in your browser.
 
 ---
 
-## 📁 Project Structure
+## Project Structure
 - **/src/main/java**: Core Servlet and Logic (UserStore, TodoServlet)
 - **/src/test/java**: JUnit 5 Test Suite (AppTest)
 - **/WebContent**: UI Layer (JSP, CSS, and styling)

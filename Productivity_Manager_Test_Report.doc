@@ -1,0 +1,169 @@
+<html>
+<head>
+<style>
+    body { font-family: 'Arial', sans-serif; line-height: 1.6; color: #333; margin: 40px; }
+    h1 { color: #5d3fd3; text-align: center; border-bottom: 2px solid #5d3fd3; padding-bottom: 10px; }
+    h2 { color: #444; border-left: 5px solid #5d3fd3; padding-left: 10px; margin-top: 30px; }
+    table { width: 100%; border-collapse: collapse; margin-top: 20px; margin-bottom: 20px; }
+    th { background-color: #f2f2f2; border: 1px solid #ddd; padding: 12px; text-align: left; width: 30%; }
+    td { border: 1px solid #ddd; padding: 12px; }
+    .pass { color: green; font-weight: bold; }
+    .img-placeholder { background: #eee; border: 1px dashed #ccc; padding: 20px; text-align: center; color: #777; margin-bottom: 30px; }
+    img { max-width: 100%; height: auto; display: block; margin: 10px auto; border: 1px solid #ddd; }
+</style>
+</head>
+<body>
+
+<h1>Productivity Manager - Software Test Report</h1>
+
+<p><strong>Project Name:</strong> Productivity Manager (Legacy: STM)</p>
+<p><strong>Date:</strong> April 4, 2026</p>
+<p><strong>Total Test Cases:</strong> 13</p>
+<p><strong>Status:</strong> <span class="pass">ALL PASS</span></p>
+
+<hr/>
+
+<h2>Section 1: Positive Test Cases</h2>
+
+<h3>[Test ID: POS-01] Valid Email Format</h3>
+<table>
+    <tr><th>Test ID</th><td>POS-01</td></tr>
+    <tr><th>Input Data</th><td>"student@university.edu"</td></tr>
+    <tr><th>Expected Output</th><td>true (Format Validated)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+<div class="img-placeholder">
+    [Screenshot: JUnit Green Bar for testValidEmail]<br/>
+    <img src="file:///C:/Users/Arryansh/.gemini/antigravity/brain/ee77dd03-84af-4fd7-a541-6d34da9a8553/media__1775324133326.png" width="500" />
+</div>
+
+<h3>[Test ID: POS-02] Unique User Registration</h3>
+<table>
+    <tr><th>Test ID</th><td>POS-02</td></tr>
+    <tr><th>Input Data</th><td>Name: Alice, Email: unique_ts@test.com, Pass: secure123</td></tr>
+    <tr><th>Expected Output</th><td>true (User Stored Successfully)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: POS-03] Success Login Authorization</h3>
+<table>
+    <tr><th>Test ID</th><td>POS-03</td></tr>
+    <tr><th>Input Data</th><td>Email: bob@test.com, Pass: mypassword</td></tr>
+    <tr><th>Expected Output</th><td>true (Session Created)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: POS-04] Verification of User Existence</h3>
+<table>
+    <tr><th>Test ID</th><td>POS-04</td></tr>
+    <tr><th>Input Data</th><td>Email: exist@test.com</td></tr>
+    <tr><th>Expected Output</th><td>true (System finds user in Data Store)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: POS-05] Data Retrieval Integrity (Name Fetch)</h3>
+<table>
+    <tr><th>Test ID</th><td>POS-05</td></tr>
+    <tr><th>Input Data</th><td>Email: david@test.com</td></tr>
+    <tr><th>Expected Output</th><td>"David"</td></tr>
+    <tr><th>Assertion Used</th><td>assertEquals()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<hr/>
+
+<h2>Section 2: Negative Test Cases</h2>
+
+<h3>[Test ID: NEG-01] Duplicate Email Registration Prevention</h3>
+<table>
+    <tr><th>Test ID</th><td>NEG-01</td></tr>
+    <tr><th>Input Data</th><td>Existing Email: duplicate@test.com</td></tr>
+    <tr><th>Expected Output</th><td>false (System rejects duplicate entry)</td></tr>
+    <tr><th>Assertion Used</th><td>assertFalse()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: NEG-02] Invalid Password Rejection</h3>
+<table>
+    <tr><th>Test ID</th><td>NEG-02</td></tr>
+    <tr><th>Input Data</th><td>Email: frank@test.com, Incorrect Pass: WRONGpass</td></tr>
+    <tr><th>Expected Output</th><td>false (Access Denied)</td></tr>
+    <tr><th>Assertion Used</th><td>assertFalse()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: NEG-03] Exception Handling Robustness</h3>
+<table>
+    <tr><th>Test ID</th><td>NEG-03</td></tr>
+    <tr><th>Input Data</th><td>null String manipulation</td></tr>
+    <tr><th>Expected Output</th><td>NullPointerException Thrown</td></tr>
+    <tr><th>Assertion Used</th><td>assertThrows()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<hr/>
+
+<h2>Section 3: Boundary Test Cases</h2>
+
+<h3>[Test ID: BOUND-01] Password Lower Limit (6 Chars)</h3>
+<table>
+    <tr><th>Test ID</th><td>BOUND-01</td></tr>
+    <tr><th>Input Data</th><td>"123456"</td></tr>
+    <tr><th>Expected Output</th><td>true (Minimal acceptable length)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: BOUND-02] Password Lower Limit Out-of-Bounds (5 Chars)</h3>
+<table>
+    <tr><th>Test ID</th><td>BOUND-02</td></tr>
+    <tr><th>Input Data</th><td>"12345"</td></tr>
+    <tr><th>Expected Output</th><td>false (Rejected by Validator)</td></tr>
+    <tr><th>Assertion Used</th><td>assertFalse()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<h3>[Test ID: BOUND-03] Minimal Valid Email Format</h3>
+<table>
+    <tr><th>Test ID</th><td>BOUND-03</td></tr>
+    <tr><th>Input Data</th><td>"a@b"</td></tr>
+    <tr><th>Expected Output</th><td>true (Technically valid structure)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue()</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS</span></td></tr>
+</table>
+
+<hr/>
+
+<h2>Section 4: Parameterized Test Cases</h2>
+
+<h3>[Test ID: PARAM-01] Multiple Invalid Email Patterns</h3>
+<table>
+    <tr><th>Test ID</th><td>PARAM-01</td></tr>
+    <tr><th>Input Data</th><td>"no_at_symbol.com", "@missing.com", "missing@"</td></tr>
+    <tr><th>Expected Output</th><td>false (Validated for all 3 inputs)</td></tr>
+    <tr><th>Assertion Used</th><td>assertFalse() (Parameterized)</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS (3/3)</span></td></tr>
+</table>
+
+<h3>[Test ID: PARAM-02] Multiple Valid Password Complexities</h3>
+<table>
+    <tr><th>Test ID</th><td>PARAM-02</td></tr>
+    <tr><th>Input Data</th><td>"mypass123", "verySecure!123", "complex_pass_456"</td></tr>
+    <tr><th>Expected Output</th><td>true (Validated for all 3 inputs)</td></tr>
+    <tr><th>Assertion Used</th><td>assertTrue() (Parameterized)</td></tr>
+    <tr><th>Result</th><td><span class="pass">PASS (3/3)</span></td></tr>
+</table>
+
+<div class="img-placeholder">
+    [Evidence: Matrix Productivity Dashboard showing successful Data Integrity Integration]<br/>
+    <img src="file:///C:/Users/Arryansh/.gemini/antigravity/brain/ee77dd03-84af-4fd7-a541-6d34da9a8553/productivity_matrix_erd_diagram_1775321029015.png" width="600" />
+</div>
+
+<p style="text-align:center; font-size: 0.8rem; color: #999;">End of Test Report - Generated by Productivity Manager Automation Suite</p>
+
+</body>
+</html>

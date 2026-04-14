@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+    body { font-family: 'Times New Roman', Times, serif; line-height: 1.6; color: #333; max-width: 800px; margin: 40px auto; padding: 20px; }
+    h1 { color: #2c3e50; border-bottom: 2px solid #2c3e50; padding-bottom: 10px; text-align: center; font-size: 24pt; }
+    h2 { color: #2980b9; border-bottom: 1px solid #eee; margin-top: 30px; font-size: 18pt; }
+    h3 { color: #2c3e50; font-size: 14pt; }
+    table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+    th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+    th { background-color: #f8f9fa; font-weight: bold; }
+    .status-pass { color: #27ae60; font-weight: bold; }
+    .img-container { text-align: center; margin: 30px 0; }
+    img { max-width: 100%; height: auto; border: 1px solid #ddd; }
+    .overview { background: #fdfdfd; padding: 15px; border-left: 5px solid #2980b9; font-style: italic; }
+</style>
+</head>
+<body>
+
+<h1>Software Requirements Document (SRD)</h1>
+<h1 style="border:none; font-size: 20pt; margin-top: -10px;">Productivity Matrix</h1>
+
+<h2>1. Project Overview</h2>
+<div class="overview">
+    The <b>Productivity Matrix</b> is a high-performance task management tool designed to help users categorize tasks using the <b>Eisenhower Matrix</b>. By sorting tasks into four quadrants based on <b>Urgency</b> and <b>Importance</b>, it empowers students and professionals to prioritize effectively—focusing on "Doing First," "Scheduling," "Delegating," or "Eliminating" tasks.
+</div>
+
+<h2>2. Functional Requirements</h2>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Feature Name</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td><b>FR-01</b></td>
+        <td>User Registration</td>
+        <td>Allows new users to create accounts securely using name, email, and password.</td>
+    </tr>
+    <tr>
+        <td><b>FR-02</b></td>
+        <td>User Authentication</td>
+        <td>Secure login system with session management to protect user data.</td>
+    </tr>
+    <tr>
+        <td><b>FR-03</b></td>
+        <td>Task Classification</td>
+        <td>Automated sorting of tasks into Eisenhower quadrants based on user input.</td>
+    </tr>
+    <tr>
+        <td><b>FR-04</b></td>
+        <td>Matrix Dashboard</td>
+        <td>Visual 2x2 grid displaying tasks with real-time distribution statistics.</td>
+    </tr>
+    <tr>
+        <td><b>FR-05</b></td>
+        <td>Task Management</td>
+        <td>Full CRUD operations (Create, Read, Update, Delete) for tasks within the matrix.</td>
+    </tr>
+    <tr>
+        <td><b>FR-06</b></td>
+        <td>Productivity Analytics</td>
+        <td>Calculation of a productivity score based on the completion of Quadrant 2 (Important but Not Urgent) tasks.</td>
+    </tr>
+</table>
+
+<h2>3. Non-Functional Requirements</h2>
+<ul>
+    <li><b>Performance (NFR-01)</b>: System response time for dashboard loading must be under 2 seconds.</li>
+    <li><b>Security (NFR-02)</b>: Mandatory 6-character minimum for passwords; session-based security.</li>
+    <li><b>Reliability (NFR-03)</b>: Persistent data storage using a Singleton UserStore model to prevent data loss.</li>
+    <li><b>Usability (NFR-04)</b>: Modern, dark-themed "Glassmorphism" interface for enhanced user engagement.</li>
+</ul>
+
+<h2>4. Entity Relationship Diagram (ERD)</h2>
+<div class="img-container">
+    <img src="erd_diagram.png" alt="Productivity Matrix ER Diagram">
+    <p><i>Figure 1: Database Schema showing User and Todo relationships.</i></p>
+</div>
+
+<h3>Data Dictionary</h3>
+<table>
+    <tr>
+        <th>Table</th>
+        <th>Field</th>
+        <th>Type</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td rowspan="3"><b>User</b></td>
+        <td>email</td>
+        <td>VARCHAR (PK)</td>
+        <td>Unique user identifier/login.</td>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>VARCHAR</td>
+        <td>Full name of the user.</td>
+    </tr>
+    <tr>
+        <td>password</td>
+        <td>VARCHAR</td>
+        <td>Encrypted user password.</td>
+    </tr>
+    <tr>
+        <td rowspan="6"><b>Todo</b></td>
+        <td>id</td>
+        <td>VARCHAR (PK)</td>
+        <td>Unique task identifier (timestamp).</td>
+    </tr>
+    <tr>
+        <td>task</td>
+        <td>TEXT</td>
+        <td>Task description.</td>
+    </tr>
+    <tr>
+        <td>status</td>
+        <td>VARCHAR</td>
+        <td>Current state (pending/done).</td>
+    </tr>
+    <tr>
+        <td>urgent</td>
+        <td>BOOLEAN</td>
+        <td>Urgency flag.</td>
+    </tr>
+    <tr>
+        <td>important</td>
+        <td>BOOLEAN</td>
+        <td>Importance flag.</td>
+    </tr>
+    <tr>
+        <td>user_email</td>
+        <td>VARCHAR (FK)</td>
+        <td>Reference to the User table.</td>
+    </tr>
+</table>
+
+<h2>5. Traceability Matrix</h2>
+<p>The following table maps implementation features to verified JUnit test cases:</p>
+<table>
+    <tr>
+        <th>Test Case</th>
+        <th>Requirement</th>
+        <th>Verification Type</th>
+        <th>Status</th>
+    </tr>
+    <tr><td>testValidEmail</td><td>FR-01</td><td>Positive</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testUserRegistration</td><td>FR-01</td><td>Positive</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testUserLoginSuccess</td><td>FR-02</td><td>Positive</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testUserExists</td><td>FR-01</td><td>Positive</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testDuplicateUser</td><td>FR-01</td><td>Negative</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testLoginWrongPass</td><td>FR-02</td><td>Negative</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testPassBoundary(6)</td><td>NFR-02</td><td>Boundary</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testPassBelowBoundary</td><td>NFR-02</td><td>Boundary</td><td class="status-pass">✅ PASS</td></tr>
+    <tr><td>testParamInvalidEmail</td><td>FR-01</td><td>Parameterized</td><td class="status-pass">✅ PASS</td></tr>
+</table>
+
+</body>
+</html>

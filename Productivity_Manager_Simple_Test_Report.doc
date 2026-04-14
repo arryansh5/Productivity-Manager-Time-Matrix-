@@ -1,0 +1,81 @@
+TEST REPORT: PRODUCTIVITY MANAGER
+
+TEST ID: POS-01
+Input: "student@university.edu"
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: POS-02
+Input: Name: Alice, Email: unique_user@test.com, Password: secure123
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: POS-03
+Input: Email: bob@test.com, Password: mypassword
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: POS-04
+Input: Email: exist@test.com
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: POS-05
+Input: Email: david@test.com
+Expected Output: "David"
+Assertion Used: assertEquals()
+Result: PASS
+
+TEST ID: NEG-01
+Input: Existing Email: duplicate@test.com
+Expected Output: false
+Assertion Used: assertFalse()
+Result: PASS
+
+TEST ID: NEG-02
+Input: Correct Email, Incorrect Password: "WRONGpass"
+Expected Output: false
+Assertion Used: assertFalse()
+Result: PASS
+
+TEST ID: NEG-03
+Input: null String manipulation
+Expected Output: NullPointerException
+Assertion Used: assertThrows()
+Result: PASS
+
+TEST ID: BOUND-01
+Input: Password: "123456" (Length 6)
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: BOUND-02
+Input: Password: "12345" (Length 5)
+Expected Output: false
+Assertion Used: assertFalse()
+Result: PASS
+
+TEST ID: BOUND-03
+Input: Email: "a@b"
+Expected Output: true
+Assertion Used: assertTrue()
+Result: PASS
+
+TEST ID: PARAM-01
+Input: "no_at_symbol.com", "@missingprefix.com", "missingpostfix@"
+Expected Output: false (for all)
+Assertion Used: assertFalse() (Parameterized)
+Result: PASS
+
+TEST ID: PARAM-02
+Input: "mypass123", "verySecure!123", "a_long_complex_password"
+Expected Output: true (for all)
+Assertion Used: assertTrue() (Parameterized)
+Result: PASS
+
+END OF TEST REPORT
